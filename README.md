@@ -19,9 +19,10 @@ Installed copies check this feed and offer updates automatically (Settings → U
 
 | | Capability |
 |---|---|
-| 🐙 | **Live session roster** — one face per running Claude Code session, colored by state (working / done / needs-you), updated in real time via hooks. Click a face to jump back into that chat. |
+| 🐙 | **Mission-control roster** — one face per running Claude Code session, colored by state (working / done / needs-you). Each row shows what that Claude is doing *right now* (`⚙ npm test`, `✎ renderer.js`), what it just finished, and flags when it's stuck. Click to **jump to the live session** — its terminal, or a real chat in the Claude Desktop app. |
+| 🔎 | **Search every chat** — full-text search across all your Claude Code transcripts on disk, most-recent-first with a snippet and match count per session. Pure local reads — no API traffic, works offline. |
 | 🌈 | **Keyboard & RGB sync** — mirrors session state onto OpenRGB devices (keyboard, fans). Animated or static effects, brightness control, clean hand-back to firmware on idle or quit. |
-| ⚡ | **One-click Claude actions** — Translate clipboard and Summarize my day, via your existing `claude` CLI. No API key, no extra cost. |
+| ⚡ | **One-click Claude actions** — Translate clipboard, Summarize my day, plus your own custom prompt buttons, via your existing `claude` CLI. No API key, no extra cost. |
 | 🎮 | **Focus game layer** — earn points as sessions finish real work; quests, focus timer, flow bonuses, daily recap, and a store of unlockable faces, colors, and sounds. Or flip to Zen mode and it all goes quiet. |
 | ⏱️ | **5-hour window tracker** — watches Claude's rolling rate-limit block and paints it as a progress line on the card, with a reset-time tooltip and a ceremony for fully-used blocks. |
 | 🪟 | **Overlay controls** — always-on-top pinning, click-through mode for gaming, drag-resize, adjustable transparency, edge-snapping, remembered position, multi-monitor safe. |
@@ -37,6 +38,17 @@ Squidlet runs on Windows on its own, but the integrations need their tools prese
 - **Keyboard lighting** — [OpenRGB](https://openrgb.org/) with its SDK server running (optional)
 
 ## Changelog
+
+### 0.1.33 — Sep 1, 2026
+- **Search every chat** — full-text search across all your Claude Code transcripts, most-recent-first with a snippet and per-session match count; pure local reads, no tokens
+- **Open a session in the Claude Desktop app** — jump from a roster face straight into a real desktop chat, alongside the terminal resume
+- **Cleaner orchestration finishes** — a `/review`, `/audit`, or Workflow that fans out background agents now celebrates once, at the real end, instead of firing a false "done" per turn boundary
+
+### 0.1.26 — Aug 31, 2026
+- **Mission control** — every roster row shows what its Claude is doing right now, what it just finished, and flags when it's stuck; click to jump to the live session's window
+- **Per-project identity** — sessions grouped and colored by project, renamable
+- **Windows toasts** — a native ping when a session needs you while the card is hidden (silenced during a focus timer)
+- **Custom prompt buttons**, an optional **global show/hide hotkey**, and **response-time stats with 7-day trends**
 
 ### 0.1.17 — Aug 29, 2026
 - **Claude 5-hour usage window** — bottom-edge progress line for your current rate-limit block: hover for the reset time, amber/red as it runs out, fireworks ceremony for a fully-worked block

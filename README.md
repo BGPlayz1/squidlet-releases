@@ -6,14 +6,19 @@ Squidlet shows a live roster of every running Claude Code session — one face p
 
 This repo is the **auto-update feed and installer downloads**. Source is private.
 
-## Install
+## Install (three steps)
 
-1. Download the latest **`Squidlet-Setup-x.y.z.exe`** from [Releases](../../releases/latest).
-2. Run it (SmartScreen: *More info → Run anyway* — the build is unsigned).
-3. Launch. Squidlet wires itself into Claude Code automatically — nothing to configure.
+1. Download the latest **`Squidlet-Setup-x.y.z.exe`** from [Releases](../../releases/latest) and run it.
+2. Windows will say *"Windows protected your PC"* — click **More info → Run anyway**. (The build isn’t code-signed yet; that’s all this means.)
+3. **Start a Claude Code chat.** Squidlet connects itself to Claude Code the first time it opens — nothing to configure. Chats that were already open before that need a restart to show up.
 
-Prefer no install? Every release also has a single-file **portable exe**.
-Installed copies check this feed and offer updates automatically (Settings → Updates).
+The card tells you what to do next if anything is missing.
+
+- **Want your keyboard to light up?** Tap the **💡 Want keyboard lighting?** tip on the card and press **Install OpenRGB now** — Squidlet installs the free OpenRGB app for you and turns the lights on when it’s done.
+- **Where did it go?** The ✕ hides Squidlet to the system tray (by the clock). Click the tray icon to bring it back; right-click it for Settings, **Setup & requirements…**, and Quit.
+- **Updates** arrive on their own: an "Update available" strip appears on the card (or check Settings → Updates).
+
+Prefer no install? Every release also has a single-file **portable exe** (it can’t self-update).
 
 ## What it can do
 
@@ -27,17 +32,29 @@ Installed copies check this feed and offer updates automatically (Settings → U
 | ⏱️ | **5-hour window tracker** — watches Claude's rolling rate-limit block and paints it as a progress line on the card, with a reset-time tooltip and a ceremony for fully-used blocks. |
 | 🪟 | **Overlay controls** — always-on-top pinning, click-through mode for gaming, drag-resize, adjustable transparency, edge-snapping, remembered position, multi-monitor safe. |
 | 🔄 | **Self-updating** — installed copies pull updates from this feed. |
-| 🔧 | **Zero-setup install** — wires its own Claude Code hooks on first launch; a Setup panel diagnoses anything missing (Claude Code, Node.js, OpenRGB) and links the fix. |
+| 🔧 | **Zero-setup install** — wires its own Claude Code hooks on first launch and needs nothing else installed. A Setup panel (tray → Setup & requirements…) shows what’s connected, and installs OpenRGB or Node.js for you in one click. Uninstalling removes the hooks again. |
 
 ## Requirements
 
 Squidlet runs on Windows on its own, but the integrations need their tools present — it warns in-app about any that are missing:
 
-- **Roster** — [Claude Code](https://claude.com/claude-code) installed, Node.js on PATH
-- **Translate / Summarize** — the `claude` CLI, logged in
-- **Keyboard lighting** — [OpenRGB](https://openrgb.org/) with its SDK server running (optional)
+- **Roster** — [Claude Code](https://claude.com/claude-code) installed. Nothing else: Squidlet brings its own runtime for the hooks. (Node.js is optional — if it’s on PATH the hooks run a touch faster.)
+- **Translate / Summarize / custom prompts** — the `claude` CLI, logged in (optional; the roster works without it)
+- **Keyboard lighting** — [OpenRGB](https://openrgb.org/) (optional; the card offers a one-click install)
 
 ## Changelog
+
+### 0.1.71 — Sep 30, 2026 — easier first launch
+- **Friendlier first launch** — an empty card says what to do, hiding to the tray explains itself once, and the Setup page is always one click away (tray → Setup & requirements…)
+- **No extra installs** — Node.js is no longer required; the roster works out of the box (Node.js is still used automatically when present, ~30 ms faster per event)
+- **One-click OpenRGB install** for keyboard lighting, right from the card; first launch without OpenRGB starts with sync off instead of a permanent warning
+- **Translate picks your languages** (Settings → Actions), **cleaner uninstall** (hooks removed), and hooks that self-heal after the app is moved
+
+### 0.1.43 – 0.1.70 — Sep 2026
+- **Open the exact chat** — a click focuses the live window (terminal or Claude Desktop) without forking the session; the card always returns home afterwards
+- **Terminal sessions are first-class** — same click behavior and green/amber bookkeeping whether Claude runs in a terminal or in the Desktop app
+- **Codex (ChatGPT) support** — Codex threads join the roster when Codex is installed
+- Many finish/stall accuracy fixes, a performance pass (no cursor hitches), and a drag fix for scaled displays
 
 ### 0.1.33 — Sep 1, 2026
 - **Search every chat** — full-text search across all your Claude Code transcripts, most-recent-first with a snippet and per-session match count; pure local reads, no tokens

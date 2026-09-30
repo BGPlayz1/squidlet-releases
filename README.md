@@ -44,11 +44,11 @@ Squidlet runs on Windows on its own, but the integrations need their tools prese
 
 ## Changelog
 
-### 0.1.71 — Sep 30, 2026 — easier first launch
+### 0.1.71 – 0.1.72 — Sep 30, 2026 — easier first launch
 - **Friendlier first launch** — an empty card says what to do, hiding to the tray explains itself once, and the Setup page is always one click away (tray → Setup & requirements…)
 - **No extra installs** — Node.js is no longer required; the roster works out of the box (Node.js is still used automatically when present, ~30 ms faster per event)
 - **One-click OpenRGB install** for keyboard lighting, right from the card; first launch without OpenRGB starts with sync off instead of a permanent warning
-- **Translate picks your languages** (Settings → Actions), **cleaner uninstall** (hooks removed), and hooks that self-heal after the app is moved
+- **Translate picks your languages** (Settings → Actions), **cleaner uninstall** (hooks removed), and hooks that self-heal after the app is moved; 0.1.72 fixes the Languages row layout at narrow card sizes
 
 ### 0.1.43 – 0.1.70 — Sep 2026
 - **Open the exact chat** — a click focuses the live window (terminal or Claude Desktop) without forking the session; the card always returns home afterwards
